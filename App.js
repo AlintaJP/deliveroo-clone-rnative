@@ -14,10 +14,13 @@ import {
   DELIVERY_SCREEN,
 } from "./constants/screens";
 import DeliveryScreen from "./src/screens/DeliveryScreen";
+import useStripeInit from "./hooks/useStripeInit";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  useStripeInit();
+
   return (
     <NavigationContainer>
       <Provider store={store}>

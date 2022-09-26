@@ -11,8 +11,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { XCircleIcon } from "react-native-heroicons/solid";
 import { urlFor } from "../../sanity";
-import { PREPARING_ORDER_SCREEN } from "../../constants/screens";
 import Currency from "../components/Currency";
+import useStripeCheckout from "../../hooks/useStripeCheckout";
 
 const BasketScreen = () => {
   const navigation = useNavigation();
@@ -30,6 +30,8 @@ const BasketScreen = () => {
 
     setGroupedItemsInBasket(groupedItems);
   }, [items]);
+
+  const handlePaymentSheet = useStripeCheckout((basketTotal + 5.99).toFixed(2));
 
   const shadow = {
     shadowOffset: { width: 5, height: 5 },
@@ -111,7 +113,9 @@ const BasketScreen = () => {
           </View>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate(PREPARING_ORDER_SCREEN)}
+            // onPress={() => navigation.navigate(PREPARING_ORDER_SCREEN)}
+            // onPress={() => navigation.navigate(STRIPE_SCREEN)}
+            onPress={handlePaymentSheet}
             className="rounded-lg bg-[#00CCBB] p-4"
           >
             <Text className="text-center text-white text-lg font-bold">
