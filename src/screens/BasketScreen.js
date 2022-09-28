@@ -113,8 +113,6 @@ const BasketScreen = () => {
           </View>
 
           <TouchableOpacity
-            // onPress={() => navigation.navigate(PREPARING_ORDER_SCREEN)}
-            // onPress={() => navigation.navigate(STRIPE_SCREEN)}
             onPress={handlePaymentSheet}
             className="rounded-lg bg-[#00CCBB] p-4"
           >

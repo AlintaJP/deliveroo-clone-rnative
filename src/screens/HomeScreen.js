@@ -64,7 +64,6 @@ const HomeScreen = () => {
           <TextInput
             placeholder="Restaurants and cuisines"
             keyboardType="default"
-            className=""
           />
         </View>
 
